@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
 })
 export class UserLoginComponent {
 
+  constructor(private router:Router){}
+
   showOtpSection = false;
+
+  openHealthCare(){
+   this.router.navigate(['/healthCare'])
+  }
 }
