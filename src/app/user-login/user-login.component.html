@@ -1,1 +1,31 @@
-<p>user-login works!</p>
+<div class="login-container">
+  <div class="login-box">
+    <h2>Login</h2>
+    <p>Welcome back! Please enter your details to continue.</p>
+
+    <form>
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" placeholder="Enter Phone Number" />
+
+      <button type="button" (click)="showOtpSection = true">Request OTP</button>
+
+      <p class="signup-text">Don't have an account? <a href="#">Signup</a></p>
+
+      <!-- OTP Section -->
+      <div *ngIf="showOtpSection" class="otp-section">
+        <label for="otp">Enter OTP</label>
+        <div class="otp-inputs">
+          <input type="text" maxlength="1" />
+          <input type="text" maxlength="1" />
+          <input type="text" maxlength="1" />
+          <input type="text" maxlength="1" />
+        </div>
+
+        <p class="resend-text">Resend</p>
+
+        <!-- Submit button to navigate to HealthCareComponent -->
+        <button type="button" (click)="openHealthCare()">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

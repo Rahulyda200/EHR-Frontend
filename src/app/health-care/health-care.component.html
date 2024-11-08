@@ -1,0 +1,48 @@
+<div class="healthcare-selection">
+    <h2>Select a Healthcare Institute</h2>
+    <p>If you are a first-time patient at the selected healthcare institute, you will need to register at the clinic for the appointment.</p>
+  
+    <!-- Polyclinics Section -->
+    <div class="section">
+      <h3>Polyclinics</h3>
+      <div *ngFor="let polyclinic of polyclinics">
+        <label>
+          <input
+            type="radio"
+            name="institute"
+            [value]="polyclinic"
+            [(ngModel)]="selectedInstitute"
+          />
+          {{ polyclinic }}
+        </label>
+      </div>
+    </div>
+  
+    <!-- Dropdown for Polyclinic selection if needed -->
+    <div *ngIf="selectedInstitute === 'Solexys Healthcare Polyclinic'">
+      <select>
+        <option value="" disabled selected>Select Polyclinic</option>
+        <option *ngFor="let option of polyclinicOptions">{{ option }}</option>
+      </select>
+    </div>
+  
+    <!-- Hospital Section -->
+    <div class="section">
+      <h3>Hospital</h3>
+      <div *ngFor="let hospital of hospitals">
+        <label>
+          <input
+            type="radio"
+            name="institute"
+            [value]="hospital"
+            [(ngModel)]="selectedInstitute"
+          />
+          {{ hospital }}
+        </label>
+      </div>
+    </div>
+  
+    <!-- Next Button -->
+    <button class="next-button" (click)="onNext()" [disabled]="!selectedInstitute">Next</button>
+  </div>
+  

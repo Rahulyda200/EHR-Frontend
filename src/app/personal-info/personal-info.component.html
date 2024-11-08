@@ -1,0 +1,121 @@
+<div class="appointment-container">
+  <div class="location">
+    <span>Location:</span> Malaysian Polyclinic
+  </div>
+
+  <div class="section-header">Personal Information</div>
+
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <div class="input-field">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" formControlName="firstName" placeholder="Enter First Name" />
+        <div *ngIf="appointmentForm.get('firstName')?.touched && appointmentForm.get('firstName')?.invalid" class="error">
+          First Name is required.
+        </div>
+      </div>
+
+      <div class="input-field">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" formControlName="lastName" placeholder="Enter Last Name" />
+        <div *ngIf="appointmentForm.get('lastName')?.touched && appointmentForm.get('lastName')?.invalid" class="error">
+          Last Name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" placeholder="Enter Email" />
+        <div *ngIf="appointmentForm.get('email')?.touched && appointmentForm.get('email')?.invalid" class="error">
+          <span *ngIf="appointmentForm.get('email')?.errors?.['required']">Email is required.</span>
+          <span *ngIf="appointmentForm.get('email')?.errors?.['email']">Invalid email format.</span>
+        </div>
+      </div>
+
+      <div class="input-field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" formControlName="phone" placeholder="Enter Phone Number" />
+        <div *ngIf="appointmentForm.get('phone')?.touched && appointmentForm.get('phone')?.invalid" class="error">
+          <span *ngIf="appointmentForm.get('phone')?.errors?.['required']">Phone is required.</span>
+          <span *ngIf="appointmentForm.get('phone')?.errors?.['pattern']">Invalid phone number format.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-field">
+        <label for="serviceType">Service Type</label>
+        <select id="serviceType" formControlName="serviceType">
+          <option value="">Select Service Type</option>
+          <option>Doctor Consultation</option>
+          <option>Nursing</option>
+        </select>
+        <div *ngIf="appointmentForm.get('serviceType')?.touched && appointmentForm.get('serviceType')?.invalid" class="error">
+          Service Type is required.
+        </div>
+      </div>
+
+      <div class="input-field">
+        <label for="serviceName">Service Name</label>
+        <select id="serviceName" formControlName="serviceName">
+          <option value="">Select Service Name</option>
+          <option>Dr. Consult</option>
+        </select>
+        <div *ngIf="appointmentForm.get('serviceName')?.touched && appointmentForm.get('serviceName')?.invalid" class="error">
+          Service Name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <label for="reason">Reason for Appointment</label>
+      <textarea id="reason" formControlName="reason" placeholder="Enter Reason"></textarea>
+      <div *ngIf="appointmentForm.get('reason')?.touched && appointmentForm.get('reason')?.invalid" class="error">
+        Reason for Appointment is required.
+      </div>
+    </div>
+
+    <div class="appointment-details">
+      <div class="date-selection">
+        <label for="date">Date</label>
+        <input type="date" id="date" formControlName="date" />
+        <div *ngIf="appointmentForm.get('date')?.touched && appointmentForm.get('date')?.invalid" class="error">
+          Date is required.
+        </div>
+      </div>
+
+      <div class="appointment-type">
+        <label for="appointmentType">Type</label>
+        <select id="appointmentType" formControlName="appointmentType">
+          <option value="">Select Appointment Type</option>
+          <option>Virtual Appointment</option>
+          <option>In-Person Appointment</option>
+        </select>
+        <div *ngIf="appointmentForm.get('appointmentType')?.touched && appointmentForm.get('appointmentType')?.invalid" class="error">
+          Appointment Type is required.
+        </div>
+      </div>
+
+      <div class="time-selection">
+        <label>Time</label>
+        <div class="time-slots">
+          <button
+            type="button"
+            *ngFor="let time of ['09:00 AM', '09:15 AM', '09:30 AM', '09:45 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM','11:45 AM','12:00 PM','12:30 PM','01:00 PM']"
+            (click)="selectTimeSlot(time)"
+            [ngClass]="{ 'selected-time': isSelectedTimeSlot(time) }"
+          >
+            {{ time }}
+          </button>
+        </div>
+        <div *ngIf="appointmentForm.get('timeSlot')?.touched && appointmentForm.get('timeSlot')?.invalid" class="error">
+          Time Slot is required.
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="book-appointment" [disabled]="appointmentForm.invalid">Book Appointment</button>
+  </form>
+</div>
