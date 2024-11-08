@@ -67,12 +67,12 @@
     display: inline-block;
     margin-right: 15px;
   }
-  
+/*   
   .time-selection {
     margin-top: 10px;
-  }
+  } */
   
-  .time-slots {
+  /* .time-slots {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -90,7 +90,7 @@
     background-color: #007bff;
     color: #fff;
     border-color: #007bff;
-  }
+  } */
   
   .book-appointment {
     margin-top: 20px;
@@ -103,8 +103,55 @@
     cursor: pointer;
     align-self: flex-end;
   }
-  
+
   .book-appointment:hover {
     background-color: #0056b3;
   }
+  .time-slots button {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+ 
+  
+  .time-slots button:hover {
+    background-color: #0056b3;
+    color: #fff;
+  }
+  .time-selection {
+    margin-top: 20px;
+  }
+  
+  .time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .time-slots button {
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 14px;
+    color: #495057;
+  }
+  
+  .time-slots button.selected-time {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .time-slots button:hover {
+    background-color: #0056b3;
+    color: #fff;
+  }
+  
   
