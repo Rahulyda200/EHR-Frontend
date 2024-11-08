@@ -4,6 +4,9 @@ footer {
     padding: 10px 0;
     font-size: 1rem;
     margin-bottom: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100
 }
 
 footer h4 {
@@ -47,6 +50,12 @@ footer a:hover {
 .footer-item.about {
     max-width: 250px;
     max-height: fit-content;
+}
+
+.footer-item h6 {
+    margin-bottom: 0;
+    text-align: center;
+    font-weight: 200;
 }
 
 /* Flex for larger screens */
