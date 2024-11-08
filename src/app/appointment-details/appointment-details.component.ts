@@ -20,6 +20,7 @@ export class AppointmentDetailsComponent {
         text: 'Your appointment has been successfully scheduled.Thank you for choosing our services!',
         icon: 'success',
         confirmButtonText: 'OK',
+        
       });
       console.log('Appointment Details:', this.data);
       this.dialogRef.close();

@@ -1,5 +1,6 @@
 .healthcare-selection {
-    width: 500px;
+    width: 600px;
+    margin: auto;
     margin-top: 100px;
     margin-bottom: 100px;
     padding: 30px;
@@ -7,7 +8,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-   
+     
     border: 1px solid #ced4da;
   }
   

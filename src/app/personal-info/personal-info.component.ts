@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppointmentDetailsComponent } from '../appointment-details/appointment-details.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-personal-info',
@@ -13,27 +14,30 @@ export class PersonalInfoComponent {
 
   constructor(private fb: FormBuilder, private dialog: MatDialog) {
     this.appointmentForm = this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      email: [''],
-      phone: [''],
-      serviceType: [''],
-      serviceName: [''],
-      reason: [''],
-      date: [''],
-      appointmentType: [''],
-      timeSlot: ['']
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]], 
+      serviceType: ['', Validators.required],
+      serviceName: ['', Validators.required],
+      reason: ['', Validators.required],
+      date: ['', Validators.required],
+      appointmentType: ['', Validators.required],
+      timeSlot: ['', Validators.required]
     });
   }
 
   onSubmit() {
-    // console.log(this.appointmentForm.value);
-    this.dialog.open(AppointmentDetailsComponent, {
-      data: this.appointmentForm.value,
-      width: '500px',  
-      height: 'auto',  
-      panelClass: 'custom-dialog' 
-    });
+    if (this.appointmentForm.valid) {
+      this.dialog.open(AppointmentDetailsComponent, {
+        data: this.appointmentForm.value,
+        width: '900px',
+        height: '450px',
+        panelClass: 'custom-dialog'
+      });
+    } else {
+      this.appointmentForm.markAllAsTouched();  
+    }
   }
 
   selectTimeSlot(time: string) {
