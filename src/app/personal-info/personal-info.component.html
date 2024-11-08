@@ -1,0 +1,87 @@
+<div class="appointment-container">
+    <div class="location">
+      <span>Location:</span> Malaysian Polyclinic
+    </div>
+  
+    <div class="section-header">Personal Information</div>
+  
+    <form>
+      <div class="form-group">
+        <div class="input-field">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" placeholder="Enter First Name" />
+        </div>
+  
+        <div class="input-field">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" placeholder="Enter Last Name" />
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <div class="input-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter Email" />
+        </div>
+  
+        <div class="input-field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" placeholder="Enter Phone Number" />
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <div class="input-field">
+          <label for="serviceType">Service Type</label>
+          <select id="serviceType">
+            <option>Select Service Type</option>
+            <!-- Add options here -->
+          </select>
+        </div>
+  
+        <div class="input-field">
+          <label for="serviceName">Service Name</label>
+          <select id="serviceName">
+            <option>Select Service Name</option>
+            <!-- Add options here -->
+          </select>
+        </div>
+      </div>
+  
+      <div class="input-field">
+        <label for="reason">Reason for Appointment</label>
+        <textarea id="reason" placeholder="Enter Reason"></textarea>
+      </div>
+  
+      <!-- Date and Time Selection Section -->
+      <div class="appointment-details">
+        <div class="date-selection">
+          <label for="date">Date</label>
+          <input type="date" id="date" />
+        </div>
+  
+        <div class="appointment-type">
+          <label for="appointmentType">Type</label>
+          <select id="appointmentType">
+            <option>Virtual Appointment</option>
+            <option>In-Person Appointment</option>
+          </select>
+        </div>
+  
+        <div class="time-selection">
+          <label>Time</label>
+          <div class="time-slots">
+            <!-- Sample time slots; add more as needed -->
+            <button type="button">09:00 AM</button>
+            <button type="button">09:15 AM</button>
+            <button type="button" class="selected">09:30 AM</button>
+            <button type="button">09:45 AM</button>
+            <!-- Add more time slots here -->
+          </div>
+        </div>
+      </div>
+  
+      <button type="submit" class="book-appointment">Book Appointment</button>
+    </form>
+  </div>
+  

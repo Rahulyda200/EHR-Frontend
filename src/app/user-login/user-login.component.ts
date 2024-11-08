@@ -13,6 +13,6 @@ export class UserLoginComponent {
   showOtpSection = false;
 
   openHealthCare(){
-   this.router.navigate(['/healthCare'])
+   this.router.navigate(['healthcare'])
   }
 }

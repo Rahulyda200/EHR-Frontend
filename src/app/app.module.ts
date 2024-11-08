@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { HealthCareComponent } from './health-care/health-care.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HealthCareComponent } from './health-care/health-care.component';
     NavbarComponent,
     FooterComponent,
     UserLoginComponent,
+    PersonalInfoComponent,
     HealthCareComponent
   ],
   imports: [
